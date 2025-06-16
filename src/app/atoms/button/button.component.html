@@ -1,0 +1,46 @@
+<button
+  [attr.type]="type"
+  class="btn"
+  [ngClass]="[
+    'btn--' + size,
+    radius ? 'btn--radius-' + radius : '',
+    outline ? 'btn--outline' : '',
+    disabled ? 'btn--disabled' : '',
+    shadow ? 'btn--shadow' : ''
+  ]"
+  [disabled]="disabled"
+  [ngStyle]="
+    !disabled
+      ? {
+          color: outline ? outlineColor : textColor,
+          backgroundColor: outline ? 'transparent' : bgColor,
+          border: outline ? '1px solid ' + outlineColor : 'none'
+        }
+      : null
+  "
+  (click)="onClick($event)"
+  (mouseover)="onHover()"
+  (mouseout)="onLeave()"
+  (mousedown)="onActive()"
+  (mouseup)="onLeave()"
+>
+  <ng-container *ngIf="iconPrefix">
+    <img
+      [src]="iconPrefix"
+      alt=""
+      class="btn__icon"
+      [ngClass]="{ 'btn__icon--prefix': hasText }"
+    />
+  </ng-container>
+
+  <span *ngIf="hasText">{{ text }}</span>
+
+  <ng-container *ngIf="iconSuffix">
+    <img
+      [src]="iconSuffix"
+      alt=""
+      class="btn__icon"
+      [ngClass]="{ 'btn__icon--suffix': hasText }"
+    />
+  </ng-container>
+</button>
