@@ -1,0 +1,78 @@
+.checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: var(--gap, 8px);
+
+  input {
+    display: none;
+  }
+
+  .checkmark {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    background-color: transparent;
+    border: 2px solid var(--checkbox-color, #000);
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+  }
+
+  .checkmark.rounded {
+    border-radius: 6px;
+  }
+
+  .checkmark.pill {
+    border-radius: 9999px;
+  }
+
+  .checkmark.none {
+    border-radius: 0;
+  }
+
+  input:checked + .checkmark {
+    background-color: var(--checkbox-color, #000);
+    border-color: var(--checkbox-color, #000);
+  }
+
+  input:checked + .checkmark::after {
+    content: "";
+    position: absolute;
+    left: 0.38rem;
+    top: 0.025rem;
+    width: 4px;
+    height: 10px;
+    border: solid var(--checkbox-checkmark-color, #fff);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 1;
+  }
+
+  .label-text {
+    font-size: 16px;
+    color: var(--label-color, #000);
+  }
+
+  &.disabled {
+    pointer-events: none;
+
+    .checkmark {
+      background-color: rgba(29, 27, 32, 0.1) !important;
+      border-color: rgba(29, 27, 32, 0.1) !important;
+
+      &::after {
+        border-color: rgba(29, 27, 32, 0.1) !important;
+      }
+    }
+
+    .label-text {
+      color: rgba(29, 27, 32, 0.2) !important;
+    }
+  }
+
+  &.error .checkmark {
+    border-color: red;
+  }
+}

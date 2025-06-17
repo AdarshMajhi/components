@@ -23,6 +23,8 @@ export class ButtonComponent {
   @Input() outline: boolean = false;
   @Input() outlineColor: string = '#1D1B20';
   @Input() shadow: boolean = false;
+  @Input() ariaLabel: string = '';
+  @Input() confirmation: boolean = false;
 
   @Output() buttonClick = new EventEmitter<Event>();
 
@@ -33,9 +35,14 @@ export class ButtonComponent {
   originalBgColor?: string;
 
   onClick(event: Event) {
-    if (!this.disabled) {
-      this.buttonClick.emit(event);
+    if (this.disabled) return;
+
+    if (this.confirmation) {
+      const confirmed = confirm('Are you sure?');
+      if (!confirmed) return;
     }
+
+    this.buttonClick.emit(event);
   }
 
   onHover() {

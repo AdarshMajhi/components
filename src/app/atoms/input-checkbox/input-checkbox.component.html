@@ -1,0 +1,29 @@
+<label
+  class="checkbox-wrapper"
+  [class.disabled]="disabled"
+  [class.error]="error"
+  [attr.aria-label]="ariaLabel || label"
+  [ngStyle]="{
+    '--checkbox-color': checkboxColor,
+    '--checkbox-checkmark-color': '#fff',
+    '--label-color': labelColor,
+    gap: gap
+  }"
+>
+  <ng-container *ngIf="labelPosition === 'left'">
+    <span class="label-text">{{ label }}</span>
+  </ng-container>
+
+  <input
+    type="checkbox"
+    [checked]="checked"
+    [disabled]="disabled"
+    [attr.aria-label]="ariaLabel"
+    (change)="onInternalChange($event)"
+  />
+  <span class="checkmark" [ngClass]="radius"></span>
+
+  <ng-container *ngIf="labelPosition === 'right'">
+    <span class="label-text">{{ label }}</span>
+  </ng-container>
+</label>
