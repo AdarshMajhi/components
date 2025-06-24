@@ -1,1 +1,40 @@
+<ng-template #buttonContent>
+  <img
+    *ngIf="_prefixIcon"
+    class="icon prefix"
+    [src]="_prefixIcon"
+    alt="prefix icon"
+  />
+  <ng-content></ng-content>
+  <img
+    *ngIf="_suffixIcon"
+    class="icon suffix"
+    [src]="_suffixIcon"
+    alt="suffix icon"
+  />
+</ng-template>
 
+<a
+  *ngIf="isLink"
+  [href]="_href"
+  [attr.rel]="_rel"
+  [attr.target]="_target"
+  [attr.routerDirection]="_routerDirection"
+  [attr.routerAnimation]="_routerAnimation"
+  [attr.disabled]="_disabled ? true : null"
+  [ngClass]="buttonClass"
+  (click)="onClick($event)"
+>
+  <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+</a>
+
+<button
+  *ngIf="!isLink"
+  [type]="_nativeType"
+  [disabled]="_disabled"
+  [attr.form]="_form"
+  [ngClass]="buttonClass"
+  (click)="onClick($event)"
+>
+  <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+</button>

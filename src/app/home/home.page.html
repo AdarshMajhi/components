@@ -4,15 +4,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" >
+<ion-content [fullscreen]="true" style="--background:#FFF;"> 
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">     
+  <div id="container">
+    <!-- <img src="../../assets/icon/checkedBox.svg" alt="" /> -->
+
     <app-button
+      suffixIcon="../../assets/icon/icon-demo.svg"
+      [width]="ButtonWidth.Content"
+      [shape]="ButtonShape.Rounded"
+      [nativeType]="NativeButtonType.Button"
+      [size]="ButtonSize.XLG"
+      [type]="ButtonType.Filled"
+      [disabled]="false"
+
     >
     </app-button>
   </div>

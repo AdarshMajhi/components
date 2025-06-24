@@ -1,0 +1,220 @@
+button,
+a.button {
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+  text-decoration: none;
+
+  .icon {
+    object-fit: contain;
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  // -- WIDTH VARIANTS --
+
+  &.width__content {
+    width: max-content;
+  }
+
+  &.width__expand {
+    width: 100%;
+  }
+
+  // -- SHAPE VARIANTS --
+
+  &.shape__square {
+    border-radius: 8px;
+  }
+
+  &.shape__rounded {
+    border-radius: 999px;
+  }
+
+  // -- SIZE VARIANTS --
+
+  &.size__xsm {
+    padding: 6px 12px;
+    font-size: 14px;
+    gap: 4px;
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &.size__sm {
+    padding: 10px 16px;
+    font-size: 14px;
+    gap: 8px;
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &.size__md {
+    padding: 16px 24px;
+    font-size: 16px;
+    gap: 8px;
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &.size__lg {
+    padding: 32px 48px;
+    font-size: 20px;
+    gap: 12px;
+    .icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &.size__xlg {
+    padding: 48px 64px;
+    font-size: 24px;
+    gap: 16px;
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  // -- TYPE: FILLED --
+
+  &.type__filled {
+    background-color: #3498db;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #298aca;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+    }
+
+    &:focus-visible {
+      background-color: #3798d9;
+    }
+    &:active {
+      background-color: #3798d9;
+    }
+
+    &:disabled {
+      background-color: #e6e6e6;
+      color: rgb(51, 51, 51, 0.3);
+      box-shadow: none;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  // -- TYPE: OUTLINED --
+
+  &.type__outlined {
+    background-color: transparent;
+    border: 1px solid #1c1c1c66;
+    color: #3498db;
+    &:hover {
+      background-color: #e6e6e6;
+    }
+    &:focus-visible {
+      background-color: #f1f4f9;
+      border-color: #3498db;
+    }
+    &:active {
+      background-color: #e6e6e6;
+      border-color: #1a1a1a;
+    }
+    &:disabled {
+      border-color: rgb(51, 51, 51, 0.2);
+      color: rgb(51, 51, 51, 0.3);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  // -- TYPE: TEXT --
+
+  &.type__text {
+    background: none;
+    border: none;
+    color: #3498db;
+    &:hover {
+      background-color: #1c1c1c0d;
+    }
+    &:focus-visible {
+      background-color: #f1f4f9;
+    }
+    &:active {
+      background-color: #1c1c1c1a;
+    }
+    &:disabled {
+      color: rgb(51, 51, 51, 0.3);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  // -- TYPE: ELEVATED --
+
+  &.type__elevated {
+    background-color: #f1f4f9;
+    color: #3498db;
+    box-shadow: 0px 1px 3px 1px #00000026, 0px 1px 2px 0px #0000004d;
+
+    &:hover {
+      background-color: #e6e6e6;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+    &:focus-visible {
+      background-color: #f1f4f9;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transform: scale(0.98);
+    }
+    &:active {
+      background-color: #1c1c1c1a;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transform: scale(0.98);
+    }
+    &:disabled {
+      background-color: #e6e6e6;
+      color: rgb(51, 51, 51, 0.3);
+      box-shadow: none;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  // -- TYPE: TONAL --
+
+  &.type__tonal {
+    background-color: #f1f4f9;
+    color: #333333;
+    &:hover {
+      background-color: #f9f9f9;
+      box-shadow: 0px 1px 3px 1px #00000026, 0px 1px 2px 0px #0000004d;
+    }
+    &:focus-visible {
+      background-color: #1c1c1c1a;
+      box-shadow: none;
+    }
+    &:active {
+      background-color: #e6e6e6;
+      box-shadow: none;
+    }
+    &:disabled {
+      background-color: #e6e6e6;
+      color: rgb(51, 51, 51, 0.3);
+      box-shadow: none;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}
